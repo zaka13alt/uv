@@ -57,8 +57,8 @@
                 <!-- Scripts required for Ultraviolet & Transports -->
                 <script src="https://cdn.jsdelivr.net/gh/zaka13alt/uv@main/uv/baremux/index.js" charset="UTF-8" defer=""></script>
                 <script src="https://cdn.jsdelivr.net/gh/zaka13alt/uv@main/uv/libcurl/index.mjs" charset="UTF-8" defer=""></script>
-                <script src="https://cdn.jsdelivr.net/gh/zaka13alt/uv@main/uv/uv/uv.bundle.js" charset="UTF-8" defer=""></script>
-                <script src="https://cdn.jsdelivr.net/gh/zaka13alt/uv@main/uv/uv/uv.config.js" charset="UTF-8" defer=""></script>
+                <script src="https://cdn.jsdelivr.net/gh/zaka13alt/uv@main/uv/uv.bundle.js" charset="UTF-8" defer=""></script>
+                <script src="https://cdn.jsdelivr.net/gh/zaka13alt/uv@main/uv/uv.config.js" charset="UTF-8" defer=""></script>
                 <script src="https://cdn.jsdelivr.net/gh/zaka13alt/uv@main/uv/register-sw.js" charset="UTF-8" defer=""></script>
                 <script src="https://cdn.jsdelivr.net/gh/zaka13alt/uv@main/uv/search.js" charset="UTF-8" defer=""></script>
                 <script src="https://cdn.jsdelivr.net/gh/zaka13alt/uv@main/uv/index.js" charset="UTF-8" defer=""></script>
