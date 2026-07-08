@@ -1,6 +1,6 @@
-<svg xmlns="http://wwww3.org" width="100%" height="100%">
+<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
     <foreignObject width="100%" height="100%">
-        <html xmlns="http://w3.org">
+        <html xmlns="http://www.w3.org/1999/xhtml">
             <head>
                 <meta charset="UTF-8" />
                 <title>Ultraviolet Proxy</title>
@@ -51,8 +51,8 @@
                 </div>
 
                 <!-- Load required modules -->
-                <script src="/baremux.js" charset="UTF-8" defer="defer"></script>
-                <script src="/libcurl.js" charset="UTF-8" defer="defer"></script>
+                <script src="/baremux/index.js" charset="UTF-8" defer="defer"></script>
+                <script src="/libcurl/libcurl.mjs" charset="UTF-8" defer="defer"></script>
                 
                 <!-- Load Ultraviolet configs -->
                 <script src="uv/uv.bundle.js" charset="UTF-8" defer="defer"></script>
@@ -68,7 +68,7 @@
                     window.addEventListener('load', async () => {
                         // 1. Initialize Bare-Mux Transport
                         if ('BareMux' in window) {
-                            const mux = new BareMux.BareMuxConnection('/baremux.js');
+                            const mux = new BareMux.BareMuxConnection('/baremux/index.js');
                             
                             // Initialize CurlTransport using libcurl.js and Wisp
                             const transport = new BareMux.CurlTransport('wss://wisp.mercurywork.shop');
