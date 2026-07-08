@@ -1,0 +1,91 @@
+ <html xmlns="http://www.w3.org/1999/xhtml">
+            <head>
+                <title>Ultraviolet Proxy</title>
+                <style>
+                    body {
+                        margin: 0;
+                        padding: 0;
+                        width: 100vw;
+                        height: 100vh;
+                        background-color: #000;
+                        color: #fff;
+                        font-family: sans-serif;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        flex-direction: center;
+                    }
+                    .container {
+                        text-align: center;
+                        width: 100%;
+                        max-width: 600px;
+                        padding: 20px;
+                    }
+                    h1 {
+                        margin-bottom: 20px;
+                    }
+                    #url-input {
+                        width: 100%;
+                        padding: 15px;
+                        background-color: #000;
+                        color: #fff;
+                        border: 2px solid #fff;
+                        border-radius: 5px;
+                        font-size: 18px;
+                        box-sizing: border-box;
+                        outline: none;
+                    }
+                    #url-input::placeholder {
+                        color: #888;
+                    }
+                    .status {
+                        margin-top: 15px;
+                        color: #aaa;
+                        font-size: 14px;
+                    }
+                </style>
+            </head>
+            <body>
+                <div class="container">
+                    <h1>Ultraviolet Web Proxy</h1>
+                    <input type="text" id="url-input" placeholder="Enter a URL or search query..." />
+                    <div id="status" class="status">Initializing transports...</div>
+                </div>
+
+                <!-- Scripts required for Ultraviolet & Transports -->
+                <script src="baremux/index.js" charset="UTF-8" defer=""></script>
+                <script src="https://cdn.jsdelivr.net/npm/libcurl.js@latest/libcurl_full.js" charset="UTF-8" defer=""></script>
+                <script src="uv/uv.bundle.js" charset="UTF-8" defer=""></script>
+                <script src="uv/uv.config.js" charset="UTF-8" defer=""></script>
+                <script src="register-sw.js" charset="UTF-8" defer=""></script>
+                <script src=search.js" charset="UTF-8" defer=""></script>
+                <script src="index.js" charset="UTF-8" defer=""></script>
+
+                <script type="text/javascript">
+                    // Transport Connection Script
+                    window.addEventListener('load', async () => {
+                        let connection;
+                        const statusDiv = document.getElementById('status');
+
+                        try {
+                            try {
+                                connection = new BareMux.BareMuxConnection("baremux/worker.js", "service-worker");
+                            } catch (e) {
+                                connection = new BareMux.BareMuxConnection("baremux/worker.js");
+                            }
+
+                            let wispUrl = "wss://wisp.mercurywork.shop/";
+                            await connection.setTransport("libcurl/index.mjs", [
+                                { websocket: wispUrl },
+                            ]);
+                            statusDiv.textContent = "Transport connected successfully! Ready to browse.";
+                        } catch (transportError) {
+                            console.error("Network transport layer connection failed:", transportError);
+                            statusDiv.textContent = "Transport connection failed. Check console for details.";
+                        }
+                    });
+                </script>
+            </body>
+        </html>
+    
+</svg>
